@@ -37,10 +37,10 @@ RUN wget -qO /tmp/virtualgl_${VIRTUALGL_VERSION}_amd64.deb https://packagecloud.
 
 # Install Prusaslicer.
 WORKDIR /slic3r
-ADD get_latest_prusaslicer_release.sh /slic3r
-RUN chmod +x /slic3r/get_latest_prusaslicer_release.sh \
-  && latestSlic3r=$(/slic3r/get_latest_prusaslicer_release.sh url) \
-  && slic3rReleaseName=$(/slic3r/get_latest_prusaslicer_release.sh name) \
+ADD get_latest_orcalslicer_release.sh /slic3r
+RUN chmod +x /slic3r/get_latest_orcalslicer_release.sh \
+  && latestSlic3r=$(/slic3r/get_latest_orcalslicer_release.sh url) \
+  && slic3rReleaseName=$(/slic3r/get_latest_orcalslicer_release.sh name) \
   && curl -sSL ${latestSlic3r} > ${slic3rReleaseName} \
   && rm -f /slic3r/releaseInfo.json \
   && chmod +x /slic3r/${slic3rReleaseName} \
