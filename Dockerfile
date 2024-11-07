@@ -87,7 +87,7 @@ ADD icons/prusaslicer-120x120.png /usr/share/novnc/app/images/icons/novnc-120x12
 ADD icons/prusaslicer-144x144.png /usr/share/novnc/app/images/icons/novnc-144x144.png
 ADD icons/prusaslicer-152x152.png /usr/share/novnc/app/images/icons/novnc-152x152.png
 ADD icons/prusaslicer-192x192.png /usr/share/novnc/app/images/icons/novnc-192x192.png
-
+ADD lxde-rc.xml /home/slic3r/.config/openbox/lxde-rc.xml 
 # Set Firefox to run with hardware acceleration as if enabled.
 RUN sed -i 's|exec $MOZ_LIBDIR/$MOZ_APP_NAME "$@"|if [ -n "$ENABLEHWGPU" ] \&\& [ "$ENABLEHWGPU" = "true" ]; then\n  exec /usr/bin/vglrun $MOZ_LIBDIR/$MOZ_APP_NAME "$@"\nelse\n  exec $MOZ_LIBDIR/$MOZ_APP_NAME "$@"\nfi|g' /usr/bin/firefox-esr
 
