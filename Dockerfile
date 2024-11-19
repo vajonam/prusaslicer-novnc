@@ -7,6 +7,8 @@ LABEL authors="vajonam, Michael Helfrich - helfrichmichael"
 ARG VIRTUALGL_VERSION=3.1.1-20240228
 ARG TURBOVNC_VERSION=3.1.1-20240127
 ENV DEBIAN_FRONTEND noninteractive
+ENV GID 2600
+ENV UID 1006 
 
 # Install some basic dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -48,8 +50,8 @@ RUN chmod +x /slic3r/get_latest_orcalslicer_release.sh \
   && rm -f /slic3r/${slic3rReleaseName} \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get autoclean \
-  && groupadd slic3r \
-  && useradd -g slic3r --create-home --home-dir /home/slic3r slic3r \
+  && groupadd -g ${GID} slic3r \
+  && useradd -u ${UID} -g slic3r --create-home --home-dir /home/slic3r slic3r \
   && mkdir -p /slic3r \
   && mkdir -p /configs \
   && mkdir -p /prints/ \
