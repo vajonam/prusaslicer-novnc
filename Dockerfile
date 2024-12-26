@@ -21,11 +21,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && mkdir -p /usr/share/desktop-directories \
     # Install Firefox without Snap.
     && add-apt-repository ppa:mozillateam/ppa \
-    && apt update \
-    && apt install -y firefox-esr --no-install-recommends \
+    && apt-get update \
+    && apt-get install -y firefox-esr --no-install-recommends \
     # Clean everything up.
-    && apt autoclean -y \
-    && apt autoremove -y \
+    && apt-get autoclean -y \
+    && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install VirtualGL and TurboVNC
@@ -35,7 +35,7 @@ RUN wget -qO /tmp/virtualgl_${VIRTUALGL_VERSION}_amd64.deb https://packagecloud.
     && dpkg -i /tmp/turbovnc_${TURBOVNC_VERSION}_amd64.deb \
     && rm -rf /tmp/*.deb
 
-# Install Prusaslicer.
+# Install PrusaSlicer.
 WORKDIR /slic3r
 ADD get_latest_prusaslicer_release.sh /slic3r
 RUN chmod +x /slic3r/get_latest_prusaslicer_release.sh \
@@ -55,7 +55,7 @@ RUN chmod +x /slic3r/get_latest_prusaslicer_release.sh \
   && mkdir -p /prints/ \
   && chown -R slic3r:slic3r /slic3r/ /home/slic3r/ /prints/ /configs/ \
   && locale-gen en_US \
-  && mkdir /configs/.local \
+  && mkdir -p /configs/.local \
   && mkdir -p /configs/.config/ \
   && ln -s /configs/.config/ /home/slic3r/ \
   && mkdir -p /home/slic3r/.config/ \
