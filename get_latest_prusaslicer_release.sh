@@ -2,7 +2,7 @@
 
 TMPDIR="$(mktemp -d)"
 
-curl -SsL https://api.github.com/repos/prusa3d/PrusaSlicer/releases/latest > $TMPDIR/latest.json
+curl -SsL https://api.github.com/repos/prusa3d/PrusaSlicer/releases/tags/version_2.8.1 > $TMPDIR/latest.json
 
 # Grabs the first item of the latest result of the AppImage.
 url=$(jq -r '.assets[] | select(.browser_download_url|test("linux-x64-older-distros-GTK3.*AppImage$"))|.browser_download_url' $TMPDIR/latest.json)
