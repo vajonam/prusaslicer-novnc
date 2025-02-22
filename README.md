@@ -1,8 +1,8 @@
-# Prusaslicer noVNC Docker Container
+# Orcaslicer noVNC Docker Container
 
 ## Overview
 
-This is a super basic noVNC build using supervisor to serve Prusaslicer in your favorite web browser. This was primarily built for users using the [popular unraid NAS software](https://unraid.net), to allow them to quickly hop in a browser, slice, and upload their favorite 3D prints.
+This is a super basic noVNC build using supervisor to serve orcaslicer in your favorite web browser. This was primarily built for users using the [popular unraid NAS software](https://unraid.net), to allow them to quickly hop in a browser, slice, and upload their favorite 3D prints.
 
 A lot of this was branched off of dmagyar's awesome [prusaslicer-vnc-docker](https://hub.docker.com/r/dmagyar/prusaslicer-vnc-docker/) project, but I found it to be a bit complex for my needs and thought this approach would simplify things a lot.
 
@@ -15,10 +15,10 @@ If you're using unraid, open your Docker page and under `Template repositories`,
 ### Outside of unraid
 
 #### Docker
-To run this image, you can run the following command: `docker run --detach --volume=prusaslicer-novnc-data:/configs/ --volume=prusaslicer-novnc-prints:/prints/ -p 8080:8080 -e SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt" 
---name=prusaslicer-novnc mikeah/prusaslicer-novnc`
+To run this image, you can run the following command: `docker run --detach --volume=orcaslicer-novnc-data:/configs/ --volume=orcaslicer-novnc-prints:/prints/ -p 8080:8080 -e SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt" 
+--name=orcaslicer-novnc vajonam/orcaslicer-novnc`
 
-This will bind `/configs/` in the container to a local volume on my machine named `prusaslicer-novnc-data`. Additionally it will bind `/prints/` in the container to `superslicer-novnc-prints` locally on my machine, it will bind port `8080` to `8080`, and finally, it will provide an environment variable to keep Prusaslicer happy by providing an `SSL_CERT_FILE`.
+This will bind `/configs/` in the container to a local volume on my machine named `orcaslicer-novnc-data`. Additionally it will bind `/prints/` in the container to `superslicer-novnc-prints` locally on my machine, it will bind port `8080` to `8080`, and finally, it will provide an environment variable to keep orcaslicer happy by providing an `SSL_CERT_FILE`.
 
 #### Docker Compose
 To use the pre-built image, simply clone this repository or copy `docker-compose.yml` and run `docker compose up -d`.
@@ -60,7 +60,7 @@ Once enabled and started you can verify the GPU is being used by running `nvidia
 
 The `GL Version` on the System Information screen inside the slicer should also show, the GPU model and driver version
 
-<img src="https://github.com/vajonam/prusaslicer-novnc/assets/152501/250c93f5-e550-42f9-8cce-b942c93ef61e" width="300" />
+<img src="https://github.com/vajonam/orcaslicer-novnc/assets/152501/250c93f5-e550-42f9-8cce-b942c93ef61e" width="300" />
 
 
 
@@ -79,8 +79,6 @@ Below are the default values for various environment variables:
 
 ## Links
 
-[Prusaslicer](https://www.prusa3d.com/prusaslicer/)
-
 [TruboVNC](https://www.turbovnc.org/)
 
 [VirtualGL](https://virtualgl.org/)
@@ -89,6 +87,3 @@ Below are the default values for various environment variables:
 
 [GitHub Source](https://github.com/helfrichmichael/prusaslicer-novnc)
 
-[Docker](https://hub.docker.com/r/mikeah/prusaslicer-novnc)
-
-<a href="https://www.buymeacoffee.com/helfrichmichael" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
