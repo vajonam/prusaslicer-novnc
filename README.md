@@ -8,29 +8,23 @@ A lot of this was branched off of dmagyar's awesome [prusaslicer-vnc-docker](htt
 
 ## How to use
 
-### In unraid
-
-If you're using unraid, open your Docker page and under `Template repositories`, add `https://github.com/helfrichmichael/unraid-templates` and save it. You should then be able to Add Container for prusaslicer-novnc. For unraid, the template will default to 6080 for the noVNC web instance.
-
-### Outside of unraid
-
-#### Docker
+### Docker
 To run this image, you can run the following command: `docker run --detach --volume=orcaslicer-novnc-data:/configs/ --volume=orcaslicer-novnc-prints:/prints/ -p 8080:8080 -e SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt" 
 --name=orcaslicer-novnc vajonam/orcaslicer-novnc`
 
 This will bind `/configs/` in the container to a local volume on my machine named `orcaslicer-novnc-data`. Additionally it will bind `/prints/` in the container to `superslicer-novnc-prints` locally on my machine, it will bind port `8080` to `8080`, and finally, it will provide an environment variable to keep orcaslicer happy by providing an `SSL_CERT_FILE`.
 
-#### Docker Compose
+### Docker Compose
 To use the pre-built image, simply clone this repository or copy `docker-compose.yml` and run `docker compose up -d`.
 
 To build a new image, clone this repository and run `docker compose up -f docker-compose.build.yml --build -d`
 
-### Using a VNC Viewer
+## Using a VNC Viewer
 
 To use a VNC viewer with the container, the default port for TurobVNC is 5900. You can add this port by adding `-p 5900:5900` to your command to start the container to open this port for access. See note below about ports related to `VNC_PORT` environment variable. 
 
 
-### GPU Acceleration/Passthrough
+## GPU Acceleration/Passthrough
 
 Like other Docker containers, you can pass your Nvidia GPU into the container using the `NVIDIA_VISIBLE_DEVICES` and `NVIDIA_DRIVER_CAPABILITIES` envs. You can define these using the value of `all` or by providing more narrow and specific values. This has only been tested on Nvidia GPUs.
 
