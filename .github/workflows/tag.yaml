@@ -13,9 +13,9 @@ jobs:
       - uses: sergeysova/jq-action@v2 # Needed for parsing the JSON of the Prusaslicer releases.
       - name: checkout repo content
         uses: actions/checkout@v2 # Checkout the repository content to GitHub's runner.
-      - name: Tag the latest Prusaslicer if available
+      - name: Tag the latest Orcaslicer if available
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          chmod +x ./tag_latest_prusaslicer.sh
-          ./tag_latest_prusaslicer.sh
+          chmod +x ./tag_latest_orcaslicer.sh
+          ./tag_latest_orcaslicer.sh
