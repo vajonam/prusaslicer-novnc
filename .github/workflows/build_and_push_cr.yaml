@@ -33,5 +33,5 @@ jobs:
           context: .
           file: ./Dockerfile  # Adjust path if your Dockerfile is in a different location
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/prusaslicer-novnc:latest
+          tags: ghcr.io/${{ github.repository_owner }}/orcaslicer-novnc:latest
 
