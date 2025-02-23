@@ -2,9 +2,7 @@
 
 ## Overview
 
-This is a super basic noVNC build using supervisor to serve orcaslicer in your favorite web browser. This was primarily built for users using the [popular unraid NAS software](https://unraid.net), to allow them to quickly hop in a browser, slice, and upload their favorite 3D prints.
-
-A lot of this was branched off of dmagyar's awesome [prusaslicer-vnc-docker](https://hub.docker.com/r/dmagyar/prusaslicer-vnc-docker/) project, but I found it to be a bit complex for my needs and thought this approach would simplify things a lot.
+This is NVIDIA hardware acceleted (NVIDIA Only Tested) container to run OrcaSlicer in web browser. It uses HW acceleration for GL. It is based on and a fork of https://github.com/helfrichmichael/prusaslicer-novnc, I moved away from PursaSlicer to OrcaSlicer so I built this. 
 
 ## How to use
 
@@ -55,7 +53,6 @@ Once enabled and started you can verify the GPU is being used by running `nvidia
 The `GL Version` on the System Information screen inside the slicer should also show, the GPU model and driver version
 
 <img src="https://github.com/vajonam/orcaslicer-novnc/assets/152501/250c93f5-e550-42f9-8cce-b942c93ef61e" width="300" />
-
 
 
 ### Other Environment Variables
