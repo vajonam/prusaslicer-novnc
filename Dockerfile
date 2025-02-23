@@ -50,8 +50,8 @@ RUN chmod +x /slic3r/get_latest_orcalslicer_release.sh \
   && rm -f /slic3r/${slic3rReleaseName} \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get autoclean \
-  && groupadd -g ${GID} slic3r \
-  && useradd -u ${UID} -g slic3r --create-home --home-dir /home/slic3r slic3r \
+  && groupadd -g ${PGID} slic3r \
+  && useradd -u ${PUID} -g slic3r --create-home --home-dir /home/slic3r slic3r \
   && mkdir -p /slic3r \
   && mkdir -p /configs \
   && mkdir -p /prints/ \
