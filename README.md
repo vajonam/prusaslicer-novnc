@@ -12,7 +12,7 @@ A lot of this was branched off of dmagyar's awesome [prusaslicer-vnc-docker](htt
 To run this image, you can run the following command: `docker run --detach --volume=orcaslicer-novnc-data:/configs/ --volume=orcaslicer-novnc-prints:/prints/ -p 8080:8080 -e SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt" 
 --name=orcaslicer-novnc vajonam/orcaslicer-novnc`
 
-This will bind `/configs/` in the container to a local volume on my machine named `orcaslicer-novnc-data`. Additionally it will bind `/prints/` in the container to `superslicer-novnc-prints` locally on my machine, it will bind port `8080` to `8080`, and finally, it will provide an environment variable to keep orcaslicer happy by providing an `SSL_CERT_FILE`.
+This will bind `/configs/` in the container to a local volume on my machine named `orcaslicer-novnc-data`. Additionally it will bind `/prints/` in the container to `orcaslicer-novnc-prints` locally on my machine, it will bind port `8080` to `8080`, and finally, it will provide an environment variable to keep orcaslicer happy by providing an `SSL_CERT_FILE`.
 
 ### Docker Compose
 To use the pre-built image, simply clone this repository or copy `docker-compose.yml` and run `docker compose up -d`.
@@ -67,7 +67,7 @@ Below are the default values for various environment variables:
 - `PGID=1000` : default GID, allows the Process GID to be set.
 - `SUPD_LOGLEVEL=INFO`: Specifies the log level for supervisord. Set to `TRACE` to see output for various commands helps if you are debugging something. See superviosrd manual for possible levels.
 - `ENABLEHWGPU=`: Enables HW 3D acceleration. Default is `false` to maintain backward compatability.
-- `VGL_DISPLAY=egl`: Advanced setting to target specific cards if you have multiple GPUs
+- `VGL_DISPLAY=egl`: Advanced setting to target specific cards if you have multiple GPUs. 
 - `NOVNC_PORT=8080`: Sets the port for the noVNC HTML5/web interface.
 - `VNC_RESOLUTION=1280x800`: Defines the resolution of the VNC server.
 - `VNC_PASSWORD=`: Defaults to no VNC password, but you can add one here.
