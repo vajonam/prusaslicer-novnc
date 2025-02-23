@@ -8,10 +8,10 @@ export NOVNC_PORT=${NOVNC_PORT:-8080}
 export VNC_PORT=${VNC_PORT:-5900}
 export VNC_RESOLUTION=${VNC_RESOLUTION:-1280x800}
 if [ -n "$VNC_PASSWORD" ]; then
-  mkdir -p /root/.vnc
-  echo "$VNC_PASSWORD" | vncpasswd -f > /root/.vnc/passwd
-  chmod 0600 /root/.vnc/passwd
-  export VNC_SEC=
+  mkdir -p /home/slic3r/.vnc
+  echo "$VNC_PASSWORD" | vncpasswd -f > /home/slic3r/.vnc/passwd
+  chmod 0600 /home/slic3r/.vnc/passwd
+  export VNC_SEC=""
 else
   export VNC_SEC="-securitytypes TLSNone,X509None,None"
 fi
