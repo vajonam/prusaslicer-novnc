@@ -42,4 +42,4 @@ if [ "$(id -u slic3r)" != "$PUID" ]; then
 fi
 
 # fix perms and launch supervisor with the above environment variables
-chown -R slic3r:slic3r /home/slic3r/ /configs/ /prints/ /dev/stdout && exec gosu slic3r supervisord -e $SUPD_LOGLEVEL
+chown -R slic3r:slic3r /slic3r/ /home/slic3r/ /configs/ /prints/ /dev/stdout && exec gosu slic3r supervisord -e $SUPD_LOGLEVEL
