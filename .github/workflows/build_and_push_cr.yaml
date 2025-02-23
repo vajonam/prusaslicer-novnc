@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - orcaslicer  # or whichever branch you want to trigger this workflow
-  push:
     tags:
       - '*'  # Also trigger the workflow when a new tag is pushed
 
