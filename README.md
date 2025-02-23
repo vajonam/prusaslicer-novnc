@@ -72,6 +72,8 @@ Below are the default values for various environment variables:
 
 ## Links
 
+[OrcaSlicer](https://github.com/SoftFever/OrcaSlicer)
+
 [TruboVNC](https://www.turbovnc.org/)
 
 [VirtualGL](https://virtualgl.org/)
