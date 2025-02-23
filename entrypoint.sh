@@ -25,5 +25,21 @@ fi
 export SUPD_LOGLEVEL="${SUPD_LOGLEVEL:-TRACE}"
 export VGL_DISPLAY="${VGL_DISPLAY:-egl}"
 
+# Set defaults if environment variables are not set
+PUID=${PUID:-1000}
+PGID=${PGID:-1000}
+
+echo "Starting container with UID: $PUID and GID: $PGID"
+
+# Update group ID for slic3r group
+if [ "$(id -g slic3r)" != "$PGID" ]; then
+  groupmod -g "$PGID" slic3r || { echo "Failed to update group ID"; exit 1; }
+fi
+
+# Update user ID for slic3r user
+if [ "$(id -u slic3r)" != "$PUID" ]; then
+  usermod -u "$PUID" slic3r || { echo "Failed to update user ID"; exit 1; }
+fi
+
 # fix perms and launch supervisor with the above environment variables
 chown -R slic3r:slic3r /home/slic3r/ /configs/ /prints/ /dev/stdout && exec gosu slic3r supervisord -e $SUPD_LOGLEVEL
