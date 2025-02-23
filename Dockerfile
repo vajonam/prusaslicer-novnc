@@ -7,8 +7,8 @@ LABEL authors="vajonam, Michael Helfrich - helfrichmichael"
 ARG VIRTUALGL_VERSION=3.1.1-20240228
 ARG TURBOVNC_VERSION=3.1.1-20240127
 ENV DEBIAN_FRONTEND noninteractive
-ARG PUID=1006
-ARG PGID=2600
+ARG PUID=1000
+ARG PGID=1000
 
 # Install some basic dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \

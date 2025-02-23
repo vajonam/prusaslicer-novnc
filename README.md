@@ -63,6 +63,8 @@ The `GL Version` on the System Information screen inside the slicer should also 
 Below are the default values for various environment variables:
 
 - `DISPLAY=:0`: Sets the DISPLAY variable (usually left as 0).
+- `PUID=1000` : default UID, allows the Process UID to be set.
+- `PGID=1000` : default GID, allows the Process GID to be set.
 - `SUPD_LOGLEVEL=INFO`: Specifies the log level for supervisord. Set to `TRACE` to see output for various commands helps if you are debugging something. See superviosrd manual for possible levels.
 - `ENABLEHWGPU=`: Enables HW 3D acceleration. Default is `false` to maintain backward compatability.
 - `VGL_DISPLAY=egl`: Advanced setting to target specific cards if you have multiple GPUs
