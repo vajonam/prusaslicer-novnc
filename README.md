@@ -2,12 +2,12 @@
 
 ## Overview
 
-This container is designed exclusively for NVIDIA hardware (tested with NVIDIA) to run OrcaSlicer in a web browser with GPU-accelerated OpenGL. It is a fork of the prusaslicer-novnc project (https://github.com/helfrichmichael/prusaslicer-novnc), modified to replace PrusaSlicer with OrcaSlicer.
+I used the prusaslicer-novnc project (https://github.com/helfrichmichael/prusaslicer-novnc) as the basis for this container, which I modified to run OrcaSlicer instead of PrusaSlicer. This container is designed to run exclusively on Nvidia hardware, where it enables the use of GPU-accelerated OpenGL for running OrcaSlicer in a web browser.
 
 ## How to use
 ### Pre-Requisites
 
-A working docker setup with nvidia runtime included that allows you to run HW accelrated containers. 
+A working docker setup with nvidia runtime included that allows you to run HW accelerated containers.
 
 ### Docker
 To run this image, you can run the following command: 
