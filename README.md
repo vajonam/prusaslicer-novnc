@@ -2,7 +2,7 @@
 
 ## Overview
 
-I used the prusaslicer-novnc project (https://github.com/helfrichmichael/prusaslicer-novnc) as the basis for this container, which I modified to run OrcaSlicer instead of PrusaSlicer. This container is designed to run exclusively on Nvidia hardware, where it enables the use of GPU-accelerated OpenGL for running OrcaSlicer in a web browser.
+I used the prusaslicer-novnc project (https://github.com/helfrichmichael/prusaslicer-novnc) as the basis for this container, which I modified to run OrcaSlicer instead of PrusaSlicer. This container is designed to run prmarily on NVIDIA hardware, where it enables the use of GPU-accelerated OpenGL for running OrcaSlicer in a web browser.
 
 ## How to use
 ### Pre-Requisites
