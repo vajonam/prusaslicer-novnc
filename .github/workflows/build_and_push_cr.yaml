@@ -1,7 +1,7 @@
 name: Build and Push Docker Image
 
 on:
-  push:
+  create:
     tags:
       - 'v*'  # Also trigger the workflow when a new tag is pushed
 
