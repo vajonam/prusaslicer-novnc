@@ -2,10 +2,8 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches:
-      - orcaslicer  # or whichever branch you want to trigger this workflow
     tags:
-      - '*'  # Also trigger the workflow when a new tag is pushed
+      - 'v*'  # Also trigger the workflow when a new tag is pushed
 
 jobs:
   build:

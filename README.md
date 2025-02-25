@@ -2,19 +2,13 @@
 
 ## Overview
 
-I used the prusaslicer-novnc project (https://github.com/helfrichmichael/prusaslicer-novnc) as the basis for this container, which I modified to run OrcaSlicer instead of PrusaSlicer. This container is designed to run prmarily on NVIDIA hardware, where it enables the use of GPU-accelerated OpenGL for running OrcaSlicer in a web browser.
+This container is designed exclusively for NVIDIA hardware (tested with NVIDIA) to run OrcaSlicer in a web browser with GPU-accelerated OpenGL. It is a fork of the prusaslicer-novnc project (https://github.com/helfrichmichael/prusaslicer-novnc), modified to replace PrusaSlicer with OrcaSlicer.
 
 ## How to use
-### Pre-Requisites
-
-A working docker setup with nvidia runtime included that allows you to run HW accelerated containers.
 
 ### Docker
-To run this image, you can run the following command: 
-
-```
-docker run --detach --volume=orcaslicer-novnc-data:/configs/ --volume=orcaslicer-novnc-prints:/prints/ -p 8080:8080 -e SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"  --name=orcaslicer-novnc vajonam/orcaslicer-novnc
-```
+To run this image, you can run the following command: `docker run --detach --volume=orcaslicer-novnc-data:/configs/ --volume=orcaslicer-novnc-prints:/prints/ -p 8080:8080 -e SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt" 
+--name=orcaslicer-novnc vajonam/orcaslicer-novnc`
 
 This will bind `/configs/` in the container to a local volume on my machine named `orcaslicer-novnc-data`. Additionally it will bind `/prints/` in the container to `orcaslicer-novnc-prints` locally on my machine, it will bind port `8080` to `8080`, and finally, it will provide an environment variable to keep orcaslicer happy by providing an `SSL_CERT_FILE`.
 
@@ -22,28 +16,6 @@ This will bind `/configs/` in the container to a local volume on my machine name
 To use the pre-built image, simply clone this repository or copy `docker-compose.yml` and run `docker compose up -d`.
 
 To build a new image, clone this repository and run `docker compose up -f docker-compose.build.yml --build -d`
-
-#### Example Docker Compose
-
-```
-services:
-  orcaslicer-novnc:
-    image: ghcr.io/vajonam/orcaslicer-novnc:latest
-    container_name: orcaslicer-novnc
-    environment:
-      - SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
-      - NVIDIA_VISIBLE_DEVICES=0
-      - NVIDIA_DRIVER_CAPABILITIES=all
-      - DISPLAY=:0
-      - VGL_DISPLAY=egl # needed to run without X server
-      - SUPD_LOGLEVEL=INFO 
-      - ENABLEHWGPU=true
-      - VNC_RESOLUTION=1920x1080
-    volumes:
-      - ./prints:/prints/
-      - ./data:/configs/
-    restart: unless-stopped
-``` 
 
 ## Using a VNC Viewer
 
