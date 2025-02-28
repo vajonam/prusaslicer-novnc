@@ -1,8 +1,7 @@
 name: Build and Push Docker Image
 
 on:
-  schedule:
-    - cron: "0 0 * * *" # Every night at 2.=
+  workflow_dispatch: 
   push:
     branches:
       - orcaslicer
