@@ -1,8 +1,12 @@
-# Orcaslicer noVNC Docker Container
+# Orcaslicer NVIDIA HW accelerated noVNC - Docker Image
 
 ## Overview
 
 This container is designed exclusively for NVIDIA hardware (tested with NVIDIA) to run OrcaSlicer in a web browser with GPU-accelerated OpenGL. It is a fork of the prusaslicer-novnc project (https://github.com/helfrichmichael/prusaslicer-novnc), modified to replace PrusaSlicer with OrcaSlicer.
+
+#### NVIDIA GPU specifc use case
+
+There is already a [linuxserver.io](https://github.com/linuxserver/docker-orcaslicer) repo, but I couldn't get hardware-accelerated GPU rendering working. I had already invested the time into this, and didn't feel like doing it again. It seems pretty niche at the moment. So I will maintain this as long as I use Orcaslicer and they maintain their AppImage distribution. I may end up discontinuing mainttaing this repo. 
 
 ## How to use
 
