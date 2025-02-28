@@ -11,10 +11,18 @@ There is already a [linuxserver.io](https://github.com/linuxserver/docker-orcasl
 ## How to use
 
 ### Docker
-To run this image, you can run the following command: `docker run --detach --volume=orcaslicer-novnc-data:/configs/ --volume=orcaslicer-novnc-prints:/prints/ -p 8080:8080 -e SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt" 
---name=orcaslicer-novnc vajonam/orcaslicer-novnc`
+To run this image, you can run the following command: 
+```
+docker run --detach \
+--volume=orcaslicer-novnc-data:/configs/ \
+--volume=orcaslicer-novnc-prints:/prints/ \
+-p 8080:8080 \
+-e SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt" \
+--name=orcaslicer-novnc \
+ghcr.io/vajonam/orcaslicer-novnc:latest
+```
 
-This will bind `/configs/` in the container to a local volume on my machine named `orcaslicer-novnc-data`. Additionally it will bind `/prints/` in the container to `orcaslicer-novnc-prints` locally on my machine, it will bind port `8080` to `8080`, and finally, it will provide an environment variable to keep orcaslicer happy by providing an `SSL_CERT_FILE`.
+This will bind `/configs/` in the container to a local volume on my machine named `orcaslicer-novnc-data`. Additionally it will bind `/prints/` in the container to `orcaslicer-novnc-prints` locally on your machine, it will bind port `8080` to `8080`, and finally, it will provide an environment variable to keep orcaslicer happy by providing an `SSL_CERT_FILE`.
 
 ### Docker Compose
 To use the pre-built image, simply clone this repository or copy `docker-compose.yml` and run `docker compose up -d`.
